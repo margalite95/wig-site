@@ -3,115 +3,55 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>טופס הזמנת פאות</title>
-
+<title>תודה על ההזמנה</title>
 <style>
-body {
+body{
   margin:0;
-  font-family:Arial;
-  background:#f5eee6;
+  font-family:Arial, Helvetica, sans-serif;
+  background:linear-gradient(180deg,#fbf7f2 0%,#f3e9de 100%);
+  color:#2f241d;
 }
-.wrap {
+.wrap{
   max-width:700px;
-  margin:auto;
-  padding:20px;
+  margin:0 auto;
+  padding:80px 16px;
 }
-.card {
-  background:white;
-  padding:20px;
+.card{
+  background:#fff;
   border-radius:20px;
-}
-h1 {
+  box-shadow:0 20px 50px rgba(86,58,30,0.12);
+  padding:40px 28px;
   text-align:center;
 }
-input,select,textarea {
-  width:100%;
-  margin-top:10px;
-  padding:12px;
-  border-radius:10px;
+h1{
+  margin:0 0 14px;
+  font-size:clamp(28px,4vw,40px);
 }
-button {
-  margin-top:20px;
-  width:100%;
-  padding:15px;
-  background:#b38b59;
-  color:white;
-  border:none;
-  border-radius:50px;
-  font-size:16px;
+p{
+  margin:0;
+  font-size:18px;
+  line-height:1.8;
+  color:#7a685b;
+}
+a{
+  display:inline-block;
+  margin-top:24px;
+  text-decoration:none;
+  background:linear-gradient(180deg,#c9a36b,#9a7749);
+  color:#fff;
+  padding:14px 28px;
+  border-radius:999px;
+  font-weight:bold;
 }
 </style>
 </head>
-
 <body>
-
 <div class="wrap">
-<h1>הזמנת פאה בהתאמה אישית</h1>
-
-<form action="https://formsubmit.co/a0bddc90674908368a9aa5e367458096" method="POST">
-
-<input type="hidden" name="_subject" value="הזמנת פאה חדשה">
-<input type="hidden" name="_template" value="table">
-<input type="hidden" name="_captcha" value="false">
-<input type="hidden" name="_next" value="thank-you.html">
-<input type="hidden" name="_autoresponse" value="קיבלנו את ההזמנה שלך ❤️ נחזור אלייך בהקדם">
-
-<label>שם מלא</label>
-<input name="full_name" required>
-
-<label>טלפון</label>
-<input name="phone" required>
-
-<label>מייל</label>
-<input type="email" name="email" required>
-
-<label>כתובת</label>
-<textarea name="address" required></textarea>
-
-<label>בחירת פאה</label>
-<select name="wig_type" required>
-<option>קצרה</option>
-<option>בינונית</option>
-<option>ארוכה</option>
-</select>
-
-<label>מידה</label>
-<select name="size">
-<option>S</option>
-<option>M</option>
-<option>L</option>
-</select>
-
-<label>אורך</label>
-<select name="length">
-<option>10</option>
-<option>12</option>
-<option>14</option>
-<option>16</option>
-<option>18</option>
-<option>20</option>
-</select>
-
-<label>צבע</label>
-<input name="color">
-
-<label>גוונים</label>
-<input name="highlights">
-
-<label>סוג שיער</label>
-<select name="hair">
-<option>חלק</option>
-<option>גלי</option>
-<option>מתולתל</option>
-</select>
-
-<label>הערות</label>
-<textarea name="notes"></textarea>
-
-<button>שליחת הזמנה</button>
-
-</form>
+  <div class="card">
+    <h1>ההזמנה התקבלה בהצלחה 🎉</h1>
+    <p>תודה רבה. נחזור אלייך בהקדם עם מענה מסודר לגבי ההזמנה.</p>
+    <a href="https://wigs-by-margalit.netlify.app/">חזרה לטופס</a>
+  </div>
 </div>
-
 </body>
 </html>
