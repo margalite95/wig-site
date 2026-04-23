@@ -20,10 +20,6 @@
 
 * { box-sizing: border-box; }
 
-html {
-  scroll-behavior: smooth;
-}
-
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
@@ -95,12 +91,8 @@ input, select, textarea {
   border: 1px solid #d8c9b9;
   border-radius: 14px;
   padding: 14px;
-  font-size: 16px;
+  font-size: 15px;
   transition: 0.2s;
-  background: #fff;
-  color: var(--text);
-  width: 100%;
-  outline: none;
 }
 
 input:focus, select:focus, textarea:focus {
@@ -110,7 +102,6 @@ input:focus, select:focus, textarea:focus {
 
 textarea {
   min-height: 120px;
-  resize: vertical;
 }
 
 .actions {
@@ -127,27 +118,12 @@ button {
   background: linear-gradient(180deg, var(--accent), var(--accent-dark));
   color: white;
   cursor: pointer;
-  transition: transform 0.15s ease, opacity 0.2s ease;
-}
-
-button:hover {
-  transform: translateY(-1px);
-}
-
-button:active {
-  transform: translateY(0);
-}
-
-button:disabled {
-  opacity: 0.75;
-  cursor: not-allowed;
 }
 
 .note {
   margin-top: 10px;
   font-size: 13px;
   color: var(--muted);
-  line-height: 1.7;
 }
 
 .badge {
@@ -157,71 +133,16 @@ button:disabled {
   border-radius: 999px;
   font-size: 13px;
   font-weight: bold;
-  display: inline-block;
-  margin-bottom: 12px;
-}
-
-.trust-line {
-  margin: 12px auto 0;
-  max-width: 680px;
-  color: var(--accent-dark);
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 1.8;
 }
 
 .footer {
   margin-top: 20px;
   text-align: center;
   color: var(--muted);
-  font-size: 13px;
-}
-
-.whatsapp-float {
-  position: fixed;
-  left: 18px;
-  bottom: 18px;
-  background: #25D366;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 999px;
-  padding: 12px 16px;
-  font-weight: 700;
-  box-shadow: 0 10px 22px rgba(0,0,0,0.18);
-  z-index: 999;
-}
-
-.status-message {
-  display: none;
-  margin-top: 14px;
-  padding: 12px 14px;
-  border-radius: 12px;
-  background: #f7f1e8;
-  color: var(--accent-dark);
-  font-size: 14px;
-  line-height: 1.6;
-}
-
-.required-mark {
-  color: #a44;
-  margin-right: 3px;
 }
 
 @media (max-width: 720px) {
   .grid { grid-template-columns: 1fr; }
-  .wrap { padding: 20px 12px 42px; }
-  .card { padding: 18px; }
-  .hero h1 { font-size: clamp(28px, 8vw, 36px); }
-  .section-title { font-size: 20px; }
-  .whatsapp-float {
-    left: 12px;
-    right: 12px;
-    bottom: 12px;
-    text-align: center;
-  }
-  body {
-    padding-bottom: 76px;
-  }
 }
 </style>
 </head>
@@ -230,168 +151,127 @@ button:disabled {
 
 <div class="wrap">
 
-  <div class="hero">
-    <div class="badge">טופס הזמנה מקוון</div>
-    <h1>הזמנת פאה בהתאמה אישית</h1>
-    <p>
-      מלאי את הפרטים בטופס ואשלח אלייך מענה מסודר לגבי ההזמנה.
-    </p>
-    <div class="trust-line">✨ פאות משיער טבעי איכותי • התאמה אישית מלאה • מחירים משתלמים</div>
-  </div>
+<div class="hero">
+<div class="badge">טופס הזמנה מקוון</div>
+<h1>הזמנת פאה בהתאמה אישית</h1>
+<p>
+מלאי את הפרטים בטופס ואשלח אלייך מענה מסודר לגבי ההזמנה.
+</p>
+</div>
 
-  <form id="wigOrderForm" class="card"
-    action="https://formsubmit.co/a0bddc90674908368a9aa5e367458096"
-    method="POST"
-    accept-charset="UTF-8">
+<form class="card"
+action="https://formsubmit.co/a0bddc90674908368a9aa5e367458096"
+method="POST">
 
-    <input type="hidden" name="_subject" value="הזמנת פאה חדשה מהטופס">
-    <input type="hidden" name="_captcha" value="false">
-<input type="hidden" name="_template" value="plain">
-    <input type="hidden" name="_next" value="https://wigs-by-margalit.netlify.app/thank-you.html">
-    <input type="hidden" name="_autoresponse" value="קיבלנו את ההזמנה שלך ונחזור אלייך בהקדם ❤️">
-    <input type="hidden" name="_honey" value="">
-    <input type="hidden" name="message" id="message">
+<input type="hidden" name="_subject" value="הזמנת פאה חדשה מהטופס">
+<input type="hidden" name="_template" value="table">
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_next" value="thank-you.html">
+<input type="text" name="_honey" style="display:none">
 
-    <h2 class="section-title">פרטים אישיים</h2>
+<h2 class="section-title">פרטים אישיים</h2>
 
-    <div class="grid">
-      <div class="field">
-        <label for="full_name">שם ושם משפחה<span class="required-mark">*</span></label>
-        <input id="full_name" name="שם ושם משפחה" type="text" required>
-      </div>
+<div class="grid">
+<div class="field">
+<label>שם ושם משפחה</label>
+<input name="שם ושם משפחה" type="text" required>
+</div>
 
-      <div class="field">
-        <label for="phone">טלפון<span class="required-mark">*</span></label>
-        <input id="phone" name="טלפון" type="tel" required>
-      </div>
+<div class="field">
+<label>טלפון</label>
+<input name="טלפון" type="tel" required>
+</div>
 
-      <div class="full">
-        <label for="email">מייל<span class="required-mark">*</span></label>
-        <input id="email" name="מייל" type="email" required>
-      </div>
+<div class="full">
+<label>כתובת מלאה</label>
+<textarea name="כתובת מלאה" required></textarea>
+</div>
+</div>
 
-      <div class="full">
-        <label for="address">כתובת מלאה<span class="required-mark">*</span></label>
-        <textarea id="address" name="כתובת מלאה" placeholder="עיר, רחוב, מספר בית, דירה, מיקוד" required></textarea>
-      </div>
-    </div>
+<h2 class="section-title">פרטי ההזמנה</h2>
 
-    <h2 class="section-title">פרטי ההזמנה</h2>
+<div class="grid">
+<div class="field">
+<label>בחירת פאה</label>
+<select name="בחירת פאה" required>
+<option disabled selected>בחרי דגם</option>
+<option>פאה קצרה</option>
+<option>פאה בינונית</option>
+<option>פאה ארוכה</option>
+<option>פאה בהתאמה אישית</option>
+</select>
+</div>
 
-    <div class="grid">
-      <div class="field">
-        <label for="wig_choice">בחירת פאה<span class="required-mark">*</span></label>
-        <select id="wig_choice" name="בחירת פאה" required>
-          <option value="" selected disabled>בחרי דגם</option>
-          <option>פאה קצרה</option>
-          <option>פאה בינונית</option>
-          <option>פאה ארוכה</option>
-          <option>פאה בהתאמה אישית</option>
-        </select>
-      </div>
+<div class="field">
+<label>גודל רשת</label>
+<select name="גודל רשת" required>
+<option disabled selected>בחרי מידה</option>
+<option>S</option>
+<option>M</option>
+<option>L</option>
+</select>
+</div>
 
-      <div class="field">
-        <label for="cap_size">גודל רשת<span class="required-mark">*</span></label>
-        <select id="cap_size" name="גודל רשת" required>
-          <option value="" selected disabled>בחרי מידה</option>
-          <option>S</option>
-          <option>M</option>
-          <option>L</option>
-        </select>
-      </div>
+<div class="field">
+<label>אורך הפאה</label>
+<select name="אורך הפאה" required>
+<option disabled selected>בחרי אורך</option>
+<option>10</option>
+<option>12</option>
+<option>14</option>
+<option>16</option>
+<option>18</option>
+<option>20</option>
+<option>22</option>
+<option>24</option>
+<option>26</option>
+</select>
+</div>
 
-      <div class="field">
-        <label for="wig_length">אורך הפאה<span class="required-mark">*</span></label>
-        <select id="wig_length" name="אורך הפאה" required>
-          <option value="" selected disabled>בחרי אורך</option>
-          <option>10</option>
-          <option>12</option>
-          <option>14</option>
-          <option>16</option>
-          <option>18</option>
-          <option>20</option>
-          <option>22</option>
-          <option>24</option>
-          <option>26</option>
-        </select>
-      </div>
+<div class="field">
+<label>צבע הפאה</label>
+<input name="צבע הפאה" type="text" required>
+</div>
 
-      <div class="field">
-        <label for="wig_color">צבע הפאה<span class="required-mark">*</span></label>
-        <input id="wig_color" name="צבע הפאה" type="text" placeholder="למשל: שחור, חום כהה, בלונד" required>
-      </div>
+<div class="field">
+<label>צבע הגוונים</label>
+<input name="צבע הגוונים" type="text" required>
+</div>
 
-      <div class="field">
-        <label for="highlight_color">צבע הגוונים<span class="required-mark">*</span></label>
-        <input id="highlight_color" name="צבע הגוונים" type="text" placeholder="אם אין, כתבי: ללא" required>
-      </div>
+<div class="field">
+<label>סוג לייס</label>
+<select name="סוג לייס" required>
+<option disabled selected>בחרי סוג</option>
+<option>רגיל</option>
+<option>מקופל</option>
+</select>
+</div>
 
-      <div class="field">
-        <label for="lace_type">סוג לייס<span class="required-mark">*</span></label>
-        <select id="lace_type" name="סוג לייס" required>
-          <option value="" selected disabled>בחרי סוג</option>
-          <option>רגיל</option>
-          <option>מקופל</option>
-        </select>
-      </div>
+<div class="field">
+<label>סוג שיער</label>
+<select name="סוג שיער" required>
+<option disabled selected>בחרי סוג</option>
+<option>מתולתל</option>
+<option>גלי</option>
+<option>חלק</option>
+</select>
+</div>
 
-      <div class="field">
-        <label for="hair_type">סוג שיער<span class="required-mark">*</span></label>
-        <select id="hair_type" name="סוג שיער" required>
-          <option value="" selected disabled>בחרי סוג</option>
-          <option>מתולתל</option>
-          <option>גלי</option>
-          <option>חלק</option>
-        </select>
-      </div>
+<div class="full">
+<label>הערות נוספות</label>
+<textarea name="הערות נוספות"></textarea>
+</div>
+</div>
 
-      <div class="full">
-        <label for="notes">הערות נוספות</label>
-        <textarea id="notes" name="הערות נוספות" placeholder="אפשר לציין סגנון, צפיפות, בקשות מיוחדות ועוד"></textarea>
-      </div>
-    </div>
+<div class="actions">
+<button type="submit">שליחת ההזמנה</button>
+</div>
 
-    <div class="actions">
-      <button type="submit" id="submitBtn">שליחת ההזמנה</button>
-      <div class="status-message" id="statusMessage">שולח את ההזמנה...</div>
-    </div>
-
-  </form>
-
- </div>
+</form>
 
 
-
-<script>
-(function () {
-  const form = document.getElementById("wigOrderForm");
-  const submitBtn = document.getElementById("submitBtn");
-  const statusMessage = document.getElementById("statusMessage");
-  const hiddenMessage = document.getElementById("message");
-
-  form.addEventListener("submit", function () {
-    const message =
-      "פרטי הזמנה חדשים:" + "\n\n" +
-      "שם ושם משפחה: " + document.getElementById("full_name").value + "\n" +
-      "טלפון: " + document.getElementById("phone").value + "\n" +
-      "מייל: " + document.getElementById("email").value + "\n" +
-      "כתובת מלאה: " + document.getElementById("address").value + "\n\n" +
-      "בחירת פאה: " + document.getElementById("wig_choice").value + "\n" +
-      "גודל רשת: " + document.getElementById("cap_size").value + "\n" +
-      "אורך הפאה: " + document.getElementById("wig_length").value + "\n" +
-      "צבע הפאה: " + document.getElementById("wig_color").value + "\n" +
-      "צבע הגוונים: " + document.getElementById("highlight_color").value + "\n" +
-      "סוג לייס: " + document.getElementById("lace_type").value + "\n" +
-      "סוג שיער: " + document.getElementById("hair_type").value + "\n" +
-      "הערות נוספות: " + document.getElementById("notes").value;
-
-    hiddenMessage.value = message;
-    submitBtn.textContent = "שולח...";
-    submitBtn.disabled = true;
-    statusMessage.style.display = "block";
-  });
-})();
-</script>
+  
+</div>
 
 </body>
 </html>
