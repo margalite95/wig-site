@@ -1,246 +1,553 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>טופס הזמנת פאות</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MagWigs | פאות בעיצוב אישי</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 
 <style>
 :root {
-  --bg: #f8f4ef;
-  --card: #ffffff;
-  --text: #2f241d;
-  --muted: #7a685b;
-  --accent: #c9a36b;
-  --accent-dark: #9a7749;
-  --border: #eadfd3;
-  --shadow: 0 20px 50px rgba(86, 58, 30, 0.12);
-  --radius: 20px;
+  --bg: #070604;
+  --card: rgba(255,255,255,0.08);
+  --card2: rgba(255,255,255,0.12);
+  --gold: #d7b56d;
+  --gold2: #fff0b8;
+  --text: #fff8ec;
+  --muted: #c7bda8;
+  --border: rgba(255, 215, 128, 0.22);
+  --shadow: 0 30px 80px rgba(0,0,0,0.55);
 }
 
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background: linear-gradient(180deg, #fbf7f2 0%, #f3e9de 100%);
+  font-family: "Heebo", Arial, sans-serif;
+  background:
+    radial-gradient(circle at 80% 0%, rgba(215,181,109,0.28), transparent 35%),
+    radial-gradient(circle at 0% 40%, rgba(255,255,255,0.08), transparent 30%),
+    linear-gradient(180deg, #0c0905 0%, #000 100%);
   color: var(--text);
+  min-height: 100vh;
 }
 
-.wrap {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 30px 16px 50px;
+.page {
+  width: min(1120px, 94%);
+  margin: auto;
+  padding: 28px 0 90px;
 }
 
-.hero {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.hero h1 {
-  margin: 0 0 12px;
-  font-size: clamp(30px, 4vw, 44px);
-  font-weight: 800;
-}
-
-.hero p {
-  margin: 0 auto;
-  max-width: 640px;
-  color: var(--muted);
-  font-size: 16px;
-  line-height: 1.8;
-}
-
-.card {
-  background: var(--card);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding: 26px;
-}
-
-.section-title {
-  font-size: 22px;
-  margin: 0 0 16px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid var(--border);
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 18px;
-}
-
-.field, .full {
+.nav {
   display: flex;
-  flex-direction: column;
-  gap: 8px;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 34px;
 }
 
-.full {
-  grid-column: 1 / -1;
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
-label {
-  font-weight: 700;
+.brand img {
+  width: 58px;
+  height: 58px;
+  object-fit: cover;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+}
+
+.brand strong {
+  font-size: 22px;
+  letter-spacing: 0.5px;
+}
+
+.nav-badge {
+  border: 1px solid var(--border);
+  color: var(--gold2);
+  padding: 9px 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(14px);
   font-size: 14px;
 }
 
-input, select, textarea {
-  border: 1px solid #d8c9b9;
-  border-radius: 14px;
-  padding: 14px;
-  font-size: 15px;
+.hero {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 24px;
+  align-items: stretch;
 }
 
-textarea {
-  min-height: 120px;
+.hero-content,
+.form-card,
+.mini-card {
+  border: 1px solid var(--border);
+  background: linear-gradient(145deg, rgba(255,255,255,0.12), rgba(255,255,255,0.045));
+  backdrop-filter: blur(18px);
+  border-radius: 34px;
+  box-shadow: var(--shadow);
+}
+
+.hero-content {
+  padding: 42px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content::after {
+  content: "";
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  background: radial-gradient(circle, rgba(255,231,160,0.22), transparent 70%);
+  left: -70px;
+  top: -70px;
+}
+
+.kicker {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  color: var(--gold2);
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.06);
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-size: 14px;
+  margin-bottom: 22px;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(38px, 6vw, 68px);
+  line-height: 1.02;
+  font-weight: 900;
+}
+
+.gradient {
+  background: linear-gradient(90deg, var(--gold2), var(--gold), #a46d24);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.lead {
+  color: var(--muted);
+  font-size: 19px;
+  line-height: 1.8;
+  max-width: 620px;
+  margin: 22px 0 28px;
 }
 
 .actions {
-  margin-top: 26px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
-button {
-  width: 100%;
-  padding: 16px;
-  border: none;
-  border-radius: 999px;
-  font-size: 17px;
-  font-weight: bold;
-  background: linear-gradient(180deg, var(--accent), var(--accent-dark));
-  color: white;
+.btn,
+.whatsapp-mini {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border-radius: 18px;
+  padding: 14px 20px;
+  font-weight: 800;
+  border: 0;
   cursor: pointer;
 }
 
-@media (max-width: 720px) {
-  .grid { grid-template-columns: 1fr; }
+.btn {
+  background: linear-gradient(135deg, #fff0b8, #d7b56d, #9a6425);
+  color: #151006;
+  box-shadow: 0 14px 34px rgba(215,181,109,0.25);
+}
+
+.whatsapp-mini {
+  color: var(--text);
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.06);
+}
+
+.bento {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 30px;
+}
+
+.mini-card {
+  padding: 18px;
+  min-height: 116px;
+}
+
+.mini-card span {
+  color: var(--gold2);
+  font-size: 25px;
+}
+
+.mini-card h3 {
+  margin: 8px 0 5px;
+  font-size: 17px;
+}
+
+.mini-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.visual {
+  border-radius: 34px;
+  min-height: 520px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  background:
+    linear-gradient(to top, rgba(0,0,0,0.74), transparent 55%),
+    url("logo.jpeg") center/cover no-repeat;
+}
+
+.visual-panel {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  left: 20px;
+  padding: 18px;
+  border-radius: 24px;
+  background: rgba(0,0,0,0.48);
+  border: 1px solid rgba(255,255,255,0.14);
+  backdrop-filter: blur(18px);
+}
+
+.visual-panel strong {
+  color: var(--gold2);
+  font-size: 20px;
+}
+
+.visual-panel p {
+  margin: 8px 0 0;
+  color: #eee1c8;
+}
+
+.form-section {
+  margin-top: 26px;
+  display: grid;
+  grid-template-columns: 0.75fr 1.25fr;
+  gap: 24px;
+}
+
+.side-copy {
+  padding: 30px;
+}
+
+.side-copy h2 {
+  margin: 0 0 12px;
+  font-size: 34px;
+}
+
+.side-copy p {
+  color: var(--muted);
+  line-height: 1.8;
+  margin: 0;
+}
+
+.form-card {
+  padding: 28px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.full {
+  grid-column: span 2;
+}
+
+label {
+  display: block;
+  color: var(--gold2);
+  font-size: 14px;
+  margin-bottom: 7px;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(0,0,0,0.38);
+  color: white;
+  padding: 14px 15px;
+  border-radius: 16px;
+  font-size: 15px;
+  font-family: inherit;
+  outline: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 4px rgba(215,181,109,0.12);
+}
+
+textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.submit {
+  width: 100%;
+  margin-top: 18px;
+  padding: 17px;
+  border-radius: 18px;
+  border: 0;
+  background: linear-gradient(135deg, #fff0b8, #d7b56d, #8f5c20);
+  color: #161006;
+  font-size: 18px;
+  font-weight: 900;
+  cursor: pointer;
+  font-family: inherit;
+  box-shadow: 0 16px 35px rgba(215,181,109,0.24);
+}
+
+.note {
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 12px;
+}
+
+.floating-wa {
+  position: fixed;
+  left: 18px;
+  bottom: 18px;
+  background: #25D366;
+  color: white;
+  text-decoration: none;
+  padding: 13px 18px;
+  border-radius: 999px;
+  font-weight: 900;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+  z-index: 20;
+}
+
+@media (max-width: 860px) {
+  .hero,
+  .form-section {
+    grid-template-columns: 1fr;
+  }
+
+  .visual {
+    min-height: 380px;
+  }
+
+  .hero-content {
+    padding: 30px 22px;
+  }
+}
+
+@media (max-width: 560px) {
+  .nav {
+    align-items: flex-start;
+    gap: 14px;
+    flex-direction: column;
+  }
+
+  .bento,
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .full {
+    grid-column: span 1;
+  }
+
+  .form-card,
+  .side-copy {
+    padding: 22px;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+
+  .btn,
+  .whatsapp-mini {
+    width: 100%;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<div class="wrap">
+<main class="page">
 
-<div class="hero">
-<div class="badge">טופס הזמנה מקוון</div>
-<h1>הזמנת פאה בהתאמה אישית</h1>
-<p>מלאי את הפרטים בטופס ואשלח אלייך מענה מסודר לגבי ההזמנה.</p>
-</div>
+  <header class="nav">
+    <div class="brand">
+      <img src="logo.jpeg" alt="MagWigs Logo">
+      <strong>MagWigs</strong>
+    </div>
+    <div class="nav-badge">פאות איכות • מחירים מפתיעים</div>
+  </header>
 
-<form class="card"
-action="https://formsubmit.co/a0bddc90674908368a9aa5e367458096"
-method="POST">
+  <section class="hero">
+    <div class="hero-content">
+      <div class="kicker">✨ עיצוב אישי בהתאמה מושלמת</div>
 
-<input type="hidden" name="_subject" value="הזמנת פאה חדשה מהטופס">
-<input type="hidden" name="_template" value="table">
-<input type="hidden" name="_captcha" value="false">
-<input type="hidden" name="_next" value="https://margalit-wigs.vercel.app/thank-you.html">
-<input type="text" name="_honey" style="display:none">
+      <h1>
+        פאה שמרגישה<br>
+        <span class="gradient">יוקרתית, טבעית ונכונה לך</span>
+      </h1>
 
-<h2 class="section-title">פרטים אישיים</h2>
+      <p class="lead">
+        פאות איכותיות משיער רך וטבעי, בהתאמה אישית, עם ליווי אישי ומחירים נגישים במיוחד.
+      </p>
 
-<div class="grid">
-<div class="field">
-<label>שם ושם משפחה</label>
-<input name="שם ושם משפחה" type="text" required>
-</div>
+      <div class="actions">
+        <a class="btn" href="#order">מלאי הזמנה</a>
+        <a class="whatsapp-mini" href="https://wa.me/972586660460" target="_blank">שיחה בוואטסאפ</a>
+      </div>
 
-<div class="field">
-<label>טלפון</label>
-<input name="טלפון" type="tel" required>
-</div>
+      <div class="bento">
+        <div class="mini-card">
+          <span>01</span>
+          <h3>התאמה אישית</h3>
+          <p>סוג פאה, גודל, אורך, צבע וגוונים.</p>
+        </div>
 
-<div class="full">
-<label>כתובת מלאה</label>
-<textarea name="כתובת מלאה" required></textarea>
-</div>
-</div>
+        <div class="mini-card">
+          <span>02</span>
+          <h3>מראה טבעי</h3>
+          <p>קו נקי, רך ועדין שמתאים ליום־יום ולאירועים.</p>
+        </div>
 
-<h2 class="section-title">פרטי ההזמנה</h2>
+        <div class="mini-card">
+          <span>03</span>
+          <h3>מחיר משתלם</h3>
+          <p>מראה יוקרתי בלי לשלם מחיר מוגזם.</p>
+        </div>
 
-<div class="grid">
-<div class="field">
-<label>בחירת פאה</label>
-<select name="בחירת פאה" required>
-<option disabled selected>בחרי דגם</option>
-<option>פאה קצרה</option>
-<option>פאה בינונית</option>
-<option>פאה ארוכה</option>
-<option>פאה בהתאמה אישית</option>
-</select>
-</div>
+        <div class="mini-card">
+          <span>04</span>
+          <h3>שירות אישי</h3>
+          <p>חוזרים אלייך עם מענה מסודר וברור.</p>
+        </div>
+      </div>
+    </div>
 
-<div class="field">
-<label>גודל רשת</label>
-<select name="גודל רשת" required>
-<option disabled selected>בחרי מידה</option>
-<option>S</option>
-<option>M</option>
-<option>L</option>
-</select>
-</div>
+    <div class="visual">
+      <div class="visual-panel">
+        <strong>MagWigs Collection</strong>
+        <p>פאות בעיצוב אישי, טבעי ואלגנטי.</p>
+      </div>
+    </div>
+  </section>
 
-<div class="field">
-<label>אורך הפאה</label>
-<select name="אורך הפאה" required>
-<option disabled selected>בחרי אורך</option>
-<option>10</option>
-<option>12</option>
-<option>14</option>
-<option>16</option>
-<option>18</option>
-<option>20</option>
-<option>22</option>
-<option>24</option>
-<option>26</option>
-</select>
-</div>
+  <section class="form-section" id="order">
+    <div class="hero-content side-copy">
+      <h2>מלאי פרטים ונחזור אלייך</h2>
+      <p>
+        הטופס קצר וברור. אחרי השליחה נקבל את הפרטים במייל ונוכל לחזור אלייך עם התאמה והמשך טיפול.
+      </p>
+    </div>
 
-<div class="field">
-<label>צבע הפאה</label>
-<input name="צבע הפאה" type="text" required>
-</div>
+    <div class="form-card">
+      <form action="https://formsubmit.co/margalite95@gmail.com" method="POST">
 
-<div class="field">
-<label>צבע הגוונים</label>
-<input name="צבע הגוונים" type="text" required>
-</div>
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://mag-wig.vercel.app/thanks-test.html">
+        <input type="hidden" name="_subject" value="הזמנה חדשה - MagWigs">
+        <input type="hidden" name="_template" value="table">
 
-<div class="field">
-<label>סוג לייס</label>
-<select name="סוג לייס" required>
-<option disabled selected>בחרי סוג</option>
-<option>רגיל</option>
-<option>מקופל</option>
-</select>
-</div>
+        <div class="form-grid">
 
-<div class="field">
-<label>סוג שיער</label>
-<select name="סוג שיער" required>
-<option disabled selected>בחרי סוג</option>
-<option>מתולתל</option>
-<option>גלי</option>
-<option>חלק</option>
-</select>
-</div>
+          <div>
+            <label>שם מלא</label>
+            <input type="text" name="name" required>
+          </div>
 
-<div class="full">
-<label>הערות נוספות</label>
-<textarea name="הערות נוספות"></textarea>
-</div>
-</div>
+          <div>
+            <label>טלפון</label>
+            <input type="tel" name="phone" required>
+          </div>
 
-<div class="actions">
-<button type="submit">שליחת ההזמנה</button>
-</div>
+          <div class="full">
+            <label>כתובת</label>
+            <input type="text" name="address">
+          </div>
 
-</form>
+          <div>
+            <label>סוג פאה</label>
+            <select name="wigType">
+              <option>לייס</option>
+              <option>לייס מקופל</option>
+              <option>פאת סרט</option>
+              <option>פאת קוקו</option>
+            </select>
+          </div>
 
-</div>
+          <div>
+            <label>גודל רשת</label>
+            <select name="size">
+              <option>S</option>
+              <option>M</option>
+              <option>L</option>
+            </select>
+          </div>
+
+          <div>
+            <label>אורך הפאה בס״מ</label>
+            <input type="number" name="length">
+          </div>
+
+          <div>
+            <label>סוג שיער</label>
+            <select name="hairType">
+              <option>חלק</option>
+              <option>גלי</option>
+              <option>מתולתל</option>
+            </select>
+          </div>
+
+          <div>
+            <label>צבע הפאה</label>
+            <input type="text" name="color">
+          </div>
+
+          <div>
+            <label>גוונים</label>
+            <input type="text" name="highlights">
+          </div>
+
+          <div class="full">
+            <label>הערות מיוחדות</label>
+            <textarea name="notes"></textarea>
+          </div>
+
+        </div>
+
+        <button class="submit" type="submit">שליחת הזמנה</button>
+        <div class="note">לאחר השליחה תועברי לדף תודה.</div>
+
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<a class="floating-wa" href="https://wa.me/972586660460" target="_blank">💬 וואטסאפ</a>
 
 </body>
 </html>
