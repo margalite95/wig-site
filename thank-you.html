@@ -1,67 +1,126 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>תודה על ההזמנה</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>תודה | MagWigs</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700;900&display=swap" rel="stylesheet">
+
 <style>
-:root {
-  --text: #2f241d;
-  --muted: #7a685b;
-  --accent: #c9a36b;
-  --accent-dark: #9a7749;
-  --shadow: 0 20px 50px rgba(86, 58, 30, 0.12);
-  --radius: 20px;
+* {
+  box-sizing: border-box;
 }
-* { box-sizing: border-box; }
-body{
-  margin:0;
-  font-family:Arial, Helvetica, sans-serif;
-  background:linear-gradient(180deg,#fbf7f2 0%,#f3e9de 100%);
-  color:var(--text);
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Heebo", Arial, sans-serif;
+  color: #fff8ec;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 22px;
+  background:
+    radial-gradient(circle at top, rgba(215,181,109,0.30), transparent 38%),
+    linear-gradient(180deg, #0c0905, #000);
 }
-.wrap{
-  max-width:700px;
-  margin:0 auto;
-  padding:80px 16px 40px;
+
+.box {
+  width: min(560px, 100%);
+  padding: 44px 28px;
+  border-radius: 34px;
+  border: 1px solid rgba(255, 215, 128, 0.25);
+  background: linear-gradient(145deg, rgba(255,255,255,0.12), rgba(255,255,255,0.04));
+  backdrop-filter: blur(18px);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.55);
 }
-.card{
-  background:#fff;
-  border-radius:var(--radius);
-  box-shadow:var(--shadow);
-  padding:40px 28px;
-  text-align:center;
+
+.icon {
+  width: 78px;
+  height: 78px;
+  margin: 0 auto 18px;
+  border-radius: 24px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #fff0b8, #d7b56d, #8f5c20);
+  color: #151006;
+  font-size: 38px;
+  font-weight: 900;
 }
-h1{
-  margin:0 0 14px;
-  font-size:clamp(28px,4vw,40px);
+
+h1 {
+  margin: 0;
+  font-size: clamp(30px, 6vw, 46px);
+  line-height: 1.1;
+  background: linear-gradient(90deg, #fff0b8, #d7b56d, #9a6425);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
-p{
-  margin:0 auto;
-  max-width:480px;
-  font-size:18px;
-  line-height:1.8;
-  color:var(--muted);
+
+p {
+  margin: 16px auto 0;
+  color: #c7bda8;
+  font-size: 18px;
+  line-height: 1.7;
+  max-width: 430px;
 }
-a{
-  display:inline-block;
-  margin-top:24px;
-  text-decoration:none;
-  background:linear-gradient(180deg,var(--accent),var(--accent-dark));
-  color:#fff;
-  padding:14px 28px;
-  border-radius:999px;
-  font-weight:bold;
+
+.actions {
+  margin-top: 28px;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+a {
+  text-decoration: none;
+  border-radius: 18px;
+  padding: 14px 20px;
+  font-weight: 900;
+}
+
+.home {
+  background: linear-gradient(135deg, #fff0b8, #d7b56d, #8f5c20);
+  color: #151006;
+}
+
+.wa {
+  color: #fff8ec;
+  border: 1px solid rgba(255, 215, 128, 0.25);
+  background: rgba(255,255,255,0.06);
+}
+
+@media (max-width: 520px) {
+  .actions {
+    flex-direction: column;
+  }
+
+  a {
+    width: 100%;
+  }
 }
 </style>
 </head>
+
 <body>
-<div class="wrap">
-  <div class="card">
-    <h1>ההזמנה התקבלה בהצלחה 🎉</h1>
-    <p>תודה רבה. נחזור אלייך בהקדם עם מענה מסודר לגבי ההזמנה.</p>
-    <a href="https://wigs-by-margalit.netlify.app/">חזרה לטופס</a>
+
+<div class="box">
+  <div class="icon">✓</div>
+
+  <h1>ההזמנה נשלחה בהצלחה</h1>
+
+  <p>
+    תודה שפנית ל־MagWigs. קיבלנו את הפרטים ונחזור אלייך בהקדם עם התאמה אישית.
+  </p>
+
+  <div class="actions">
+    <a class="home" href="index-test.html">חזרה לאתר</a>
+    <a class="wa" href="https://wa.me/972586660460" target="_blank">מעבר לוואטסאפ</a>
   </div>
 </div>
+
 </body>
 </html>
